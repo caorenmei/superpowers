@@ -121,12 +121,12 @@ Append a short section telling the agent to:
 - avoid host-only setup advice unless necessary
 - avoid changing devcontainer config unless the task requires it
 
-### If your team works in 简体中文
+### If your team has a preferred working language
 
-The template already defaults to Simplified Chinese. If you want stricter output control, add lines such as:
+The template can stay language-agnostic. If you want stricter output control, add lines such as:
 
 - code and commands stay in original language
-- explanations stay in Chinese
+- explanations stay in the team's preferred language
 - answers should start with the conclusion
 
 ## Suggested operating policy for Copilot CLI
@@ -196,7 +196,7 @@ When adapting the template for a real repo:
 
 ### Keep in the short template
 
-- use Chinese
+- set a preferred working language
 - be concise
 - classify task type
 - ask one blocking question at a time
