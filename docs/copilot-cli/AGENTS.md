@@ -1,69 +1,69 @@
-# Copilot CLI AGENTS 模板
+# Copilot CLI AGENTS Template
 
-将下面内容复制到你自己仓库根目录的 `AGENTS.md`，或合并到已有的 `AGENTS.md` 中。
+Copy the block below into your own repository root as `AGENTS.md`, or merge it into an existing `AGENTS.md`.
 
 ```md
 # AGENTS.md
 
-本文件定义本仓库中 AI 代理（尤其是 Copilot CLI）的默认工作方式。
-如与系统默认行为冲突，以本文件为准；如与用户直接指令冲突，以用户直接指令为准。
+This file defines the default working style for AI agents in this repository, especially Copilot CLI.
+If it conflicts with system defaults, follow this file. If it conflicts with direct user instructions, follow the user.
 
-## 1. 语言与风格
+## 1. Language and style
 
-- 默认使用仓库当前主工作语言；如果没有明确约定，跟随用户当前语言。
-- 回答要简洁、直接、可执行。
-- 先给结论，再给必要说明。
-- 除非我明确要求，不要写大段背景介绍。
+- Use the repository's primary working language; if none is specified, follow the user's language.
+- Keep answers concise, direct, and actionable.
+- Lead with the conclusion or recommendation.
+- Do not add long background explanations unless I ask for them.
 
-## 2. 成本控制默认值
+## 2. Cost-control defaults
 
-- 优先减少高成本轮次、无效追问和过度展开。
-- 一次回复尽量解决一个完整问题，而不是把信息拆成多轮。
-- 每次最多只问一个真正阻塞的问题。
-- 提问时使用编号选项，并给出推荐项与理由。
-- 如果存在安全且合理的默认假设，直接说明假设并继续推进。
+- Prefer fewer high-value turns over many small clarification turns.
+- Try to solve one complete problem per response instead of spreading obvious steps across multiple replies.
+- Ask at most one truly blocking question at a time.
+- When asking a question, use numbered options and include a recommendation.
+- If there is a safe, reasonable default, state the assumption and continue.
 
-## 3. 先判断任务类型
+## 3. Classify the task first
 
-收到任务后，先判断属于哪一类：
+When a request arrives, first classify it as one of:
 
-1. 解释 / 问答：直接回答，不修改文件。
-2. 方案 / spec / plan：先读必要上下文，输出结构化方案；未经我确认，不进入实现。
-3. 实现 / 修复：先读相关文件，给出最小实施思路，再进行最小完整改动。
+1. Explanation / Q&A: answer directly and do not edit files.
+2. Plan / spec: read only the needed context, then return a structured plan. Do not implement until I confirm.
+3. Implementation / fix: inspect the relevant files, describe the minimal approach, then make the smallest complete change.
 
-## 4. 探索与执行纪律
+## 4. Exploration and execution discipline
 
-- 优先做定向阅读和定向搜索，不做大范围无差别扫描。
-- 非必要不要启动子代理、并行代理或高开销深度流程。
-- 只有在任务明显可拆分为多个相互独立的子任务时，才考虑使用子代理。
-- 不要为了显得全面而重复总结已知上下文。
+- Prefer targeted reading and targeted search over broad repository sweeps.
+- Do not use subagents, parallel agents, or other high-cost workflows unless they are clearly justified.
+- Only use subagents when the work cleanly splits into independent tracks.
+- Do not repeat context that is already clear just to appear thorough.
 
-## 5. 代码改动原则
+## 5. Code-change rules
 
-- 只修改与当前任务直接相关的文件。
-- 采用最小、完整、可验证的改动。
-- 不顺手重构无关代码，不批量改命名，不新增不必要依赖。
-- 优先复用现有模式、现有脚本、现有工具链。
+- Change only files that are directly relevant to the task.
+- Make the smallest complete and verifiable change.
+- Do not do drive-by refactors, mass renames, or unnecessary dependency additions.
+- Reuse existing patterns, scripts, and tooling where possible.
 
-## 6. 验证原则
+## 6. Validation rules
 
-- 改动前先识别已有的构建、测试、lint 或验证方式。
-- 改动后只运行与本次变更直接相关的最小验证集。
-- 如果未运行全量验证，要明确说明原因和剩余风险。
+- Identify the existing build, test, lint, or verification path before changing files.
+- After changes, run only the smallest existing validation set that directly covers the change.
+- If full validation was not run, state why and call out the remaining risk.
 
-## 7. 仓库适配规则
+## 7. Repository adaptation rules
 
-- 如果是 monorepo，先识别受影响的 package / module / service，再缩小范围。
-- 如果使用 Bazel，优先验证最小相关 target，避免默认跑 `//...`。
-- 如果是多语言仓库，遵循各子目录现有的语言惯例与工具链。
-- 如果使用 DevContainer，默认假设命令应在容器内执行，避免给出宿主机专属方案。
+- In a monorepo, identify the affected package / module / service before broad exploration.
+- In Bazel repositories, validate the smallest relevant target first instead of defaulting to `//...`.
+- In multi-language repositories, follow the tooling and conventions of the touched subtree.
+- In DevContainer-based repositories, assume commands should run inside the container unless the task requires something else.
 
-## 8. 输出要求
+## 8. Output requirements
 
-- 计划类输出使用列表或检查清单。
-- 实现完成后总结：
-  - 改了哪些文件
-  - 跑了哪些验证
-  - 还有哪些未验证项或风险
-- 如果存在多个方案，优先给推荐方案，而不是把选择压力全部丢给我。
+- Use lists or checklists for plans and status updates.
+- After implementation, summarize:
+  - which files changed
+  - what validation ran
+  - what remains unverified or risky
+- When multiple approaches are possible, recommend one instead of pushing all decision-making back to me.
 ```
