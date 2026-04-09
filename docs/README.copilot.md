@@ -23,6 +23,8 @@ Recommended usage:
 2. Trim or extend only the sections that match your workflow
 3. Keep the root `AGENTS.md` short; put longer rationale in docs like this one
 
+If you reference the template from your own documentation, update the link path to match where you store it in your repository.
+
 ## Design goals
 
 The template is optimized for repositories that want instructions to be:

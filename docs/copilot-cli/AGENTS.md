@@ -27,7 +27,7 @@ If it conflicts with system defaults, follow this file. If it conflicts with dir
 
 When a request arrives, first classify it as one of:
 
-1. Explanation / Q&A: answer directly and do not edit files.
+1. Explanation / Q&A: answer directly without editing files.
 2. Plan / spec: read only the needed context, then return a structured plan. Do not implement until I confirm.
 3. Implementation / fix: inspect the relevant files, describe the minimal approach, then make the smallest complete change.
 
