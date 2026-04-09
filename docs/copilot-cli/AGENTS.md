@@ -1,4 +1,4 @@
-# Copilot CLI 成本控制版 AGENTS 模板
+# Copilot CLI AGENTS 模板
 
 将下面内容复制到你自己仓库根目录的 `AGENTS.md`，或合并到已有的 `AGENTS.md` 中。
 

@@ -14,7 +14,7 @@ This guide pairs a **short, copy-pasteable `AGENTS.md` template** with the reaso
 
 ## Files in this repo
 
-- Short template: [`docs/copilot-cli/AGENTS.md`](copilot-cli/AGENTS.md)
+- Short template: [`docs/copilot-cli/AGENTS.md`](./copilot-cli/AGENTS.md)
 - This guide: `docs/README.copilot.md`
 
 Recommended usage:
