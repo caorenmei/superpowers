@@ -89,8 +89,8 @@ copilot plugin marketplace add obra/superpowers-marketplace
 copilot plugin install superpowers@superpowers-marketplace
 ```
 
-**Detailed docs:** [docs/README.copilot.md](docs/README.copilot.md)  
-**Copy-paste AGENTS template:** [docs/copilot-cli/AGENTS.md](docs/copilot-cli/AGENTS.md)
+- **Detailed docs:** [docs/README.copilot.md](docs/README.copilot.md)
+- **Copy-paste AGENTS template:** [docs/copilot-cli/AGENTS.md](docs/copilot-cli/AGENTS.md)
 
 ### Gemini CLI
 
